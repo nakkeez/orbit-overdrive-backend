@@ -1,6 +1,0 @@
-@OrbitOverdriveServer_HostAddress = http://localhost:5272
-
-GET {{OrbitOverdriveServer_HostAddress}}/ws
-Accept: application/json
-
-###

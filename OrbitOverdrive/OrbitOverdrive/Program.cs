@@ -8,6 +8,12 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+
 var webSocketOptions = new WebSocketOptions
 {
     KeepAliveInterval = TimeSpan.FromSeconds(30),
@@ -15,12 +21,6 @@ var webSocketOptions = new WebSocketOptions
 };
 
 app.UseWebSockets(webSocketOptions);
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
 
 app.UseHttpsRedirection();
 
